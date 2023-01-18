@@ -3,7 +3,15 @@ guid: 017c14a0b2ceaec4191b684dfd17404f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - _onAsteroidDestroyed: {instanceID: 0}
+  - _minForce: {fileID: 11400000, guid: 041c70d03d1b0b348965b3c17defed6f, type: 2}
+  - _maxForce: {fileID: 11400000, guid: 8b83c0cf649c2314a983fad95b07327c, type: 2}
+  - _minSize: {fileID: 11400000, guid: 1895f4b44f0a69b49a3aaf0cc45ee543, type: 2}
+  - _maxSize: {fileID: 11400000, guid: 93214908cd0701541b2facd0f3273f44, type: 2}
+  - _minTorque: {fileID: 11400000, guid: c4a6be68d8e8e8a43847e5576efd6f7f, type: 2}
+  - _maxTorque: {fileID: 11400000, guid: 43adbfae02c9fa247b6441c8db0e8dd9, type: 2}
+  - _shape: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -1,8 +1,10 @@
 using Asteroids;
+using Variables;
 using UnityEditor;
 using UnityEngine.UIElements;
 using UnityEditor.UIElements;
 
+#if false
 
 [CustomEditor(typeof(Asteroid))]
 public class AsteroidEditor : Editor
@@ -11,8 +13,11 @@ public class AsteroidEditor : Editor
 
     public override VisualElement CreateInspectorGUI()
     {
-        var root = new VisualElement();
-        UXML.CloneTree(root);
-        return root;
+        return base.CreateInspectorGUI();
+        // var root = new VisualElement();
+        // UXML.CloneTree(root);
+        // return root;
     }
 }
+
+#endif

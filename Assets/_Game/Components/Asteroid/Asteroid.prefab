@@ -47,9 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _onAsteroidDestroyed: {fileID: 11400000, guid: 6194a1f60d68f9f4da5519ce74b63a58, type: 2}
-  _minMaxForce: {x: 5.724637, y: 11.236147}
-  _minMaxSize: {x: 2.971015, y: 10.579711}
-  _minMaxTorque: {x: 4.9275355, y: 10.072463}
+  _settings: {fileID: 11400000, guid: 885d731c97fdce0409bf79542aae6d41, type: 2}
   _shape: {fileID: 1524412162417054026}
 --- !u!50 &1784223117350305362
 Rigidbody2D:

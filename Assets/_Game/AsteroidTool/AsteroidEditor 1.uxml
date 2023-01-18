@@ -1,0 +1,25 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <ui:VisualElement name="MinMaxSliders" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; flex-wrap: nowrap; height: auto; border-left-color: rgb(46, 46, 46); border-right-color: rgb(46, 46, 46); border-top-color: rgb(46, 46, 46); border-bottom-color: rgb(46, 46, 46); border-left-width: 10px; border-right-width: 10px; border-top-width: 10px; border-bottom-width: 10px; padding-left: 8px; padding-right: 8px; padding-top: 8px; padding-bottom: 8px;">
+        <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-items: center; width: 30%; align-self: stretch; height: 217px; padding-left: 10px; padding-right: 10px; justify-content: space-between;">
+            <ui:Label tabindex="-1" text="Force" display-tooltip-when-elided="true" style="white-space: nowrap; -unity-text-align: middle-left; margin-left: 0;" />
+            <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 100%; justify-content: flex-start; align-items: auto; flex-direction: row; margin-left: 5px; margin-right: 5px; align-self: auto; flex-wrap: nowrap;">
+                <ui:Slider picking-mode="Ignore" label="Min" value="2" high-value="10" show-input-field="true" inverted="false" direction="Vertical" name="MinForce" binding-path="_minForce.Value" style="height: 100%; width: 50%; flex-direction: column; align-items: stretch; justify-content: space-between; align-self: stretch;" />
+                <ui:Slider picking-mode="Ignore" label="Max" value="6" high-value="10" show-input-field="true" inverted="false" direction="Vertical" binding-path="_maxForce.Value" name="MaxForce" style="height: 100%; width: 50%; flex-direction: column; align-items: stretch; justify-content: space-between; align-self: stretch;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-items: center; width: 30%; align-self: stretch; height: 217px; padding-left: 10px; padding-right: 10px; justify-content: space-between;">
+            <ui:Label tabindex="-1" text="Size" display-tooltip-when-elided="true" style="white-space: nowrap; -unity-text-align: middle-left; margin-left: 0;" />
+            <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 100%; justify-content: flex-start; align-items: auto; flex-direction: row; margin-left: 5px; margin-right: 5px; align-self: auto; flex-wrap: nowrap;">
+                <ui:Slider picking-mode="Ignore" label="Min" value="2" high-value="10" show-input-field="true" inverted="false" direction="Vertical" binding-path="_minSize.Value" name="MinSize" style="height: 100%; width: 50%; flex-direction: column; align-items: stretch; justify-content: space-between; align-self: stretch;" />
+                <ui:Slider picking-mode="Ignore" label="Max" value="6" high-value="10" show-input-field="true" inverted="false" direction="Vertical" binding-path="_maxSize.Value" name="MaxSize" style="height: 100%; width: 50%; flex-direction: column; align-items: stretch; justify-content: space-between; align-self: stretch;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-items: center; width: 30%; align-self: stretch; height: 217px; padding-left: 10px; padding-right: 10px; justify-content: space-between;">
+            <ui:Label tabindex="-1" text="Torque" display-tooltip-when-elided="true" style="white-space: nowrap; -unity-text-align: middle-left; margin-left: 0;" />
+            <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 100%; justify-content: flex-start; align-items: auto; flex-direction: row; margin-left: 5px; margin-right: 5px; align-self: auto; flex-wrap: nowrap;">
+                <ui:Slider picking-mode="Ignore" label="Min" value="2" high-value="10" show-input-field="true" inverted="false" direction="Vertical" binding-path="_minTorque.Value" name="MinTorque" style="height: 100%; width: 50%; flex-direction: column; align-items: stretch; justify-content: space-between; align-self: stretch;" />
+                <ui:Slider picking-mode="Ignore" label="Max" value="6" high-value="10" show-input-field="true" inverted="false" direction="Vertical" binding-path="_maxTorque.Value" name="MaxTorque" style="height: 100%; width: 50%; flex-direction: column; align-items: stretch; justify-content: space-between; align-self: stretch;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
