@@ -55,5 +55,11 @@ public class AsteroidEditorWindow : EditorWindow
 
         sp = so.FindProperty(nameof(AsteroidSettings.MaxTorque));
         rootVisualElement.Q<Slider>("MaxTorque").BindProperty(sp);
+
+        sp = so.FindProperty(nameof(AsteroidSettings.Damage));
+        rootVisualElement.Q<PropertyField>("Damage").BindProperty(sp);
+
+        sp = so.FindProperty(nameof(AsteroidSettings.Colors));
+        rootVisualElement.Q<PropertyField>("Colors").BindProperty(sp);
     }
 }

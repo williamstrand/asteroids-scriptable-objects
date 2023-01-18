@@ -17,6 +17,7 @@ namespace Asteroids
 
         [Header("References:")]
         [SerializeField] private Transform _shape;
+        [SerializeField] private SpriteRenderer _spriteRenderer;
 
         private Rigidbody2D _rigidbody;
         private Vector3 _direction;
@@ -31,6 +32,7 @@ namespace Asteroids
             AddForce();
             AddTorque();
             SetSize();
+            SetColor();
         }
         
         private void OnTriggerEnter2D(Collider2D other)
@@ -63,7 +65,12 @@ namespace Asteroids
                 Destroy(gameObject);
             }
         }
-        
+
+        private void SetColor()
+        {
+            _spriteRenderer.color = _settings.Colors[Random.Range(0, _settings.Colors.Length)];
+        }
+
         private void SetDirection()
         {
             var size = new Vector2(3f, 3f);

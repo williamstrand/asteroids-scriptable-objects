@@ -12,4 +12,7 @@ public class AsteroidSettings : ScriptableObject
     [Range(0, 10)] public float MaxSize;
     [Range(0, 10)] public float MinTorque;
     [Range(0, 10)] public float MaxTorque;
+
+    [Range(0, 10)] public int Damage;
+    public Color[] Colors;
 }

@@ -12,9 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 684eab4fd41cf034383b86f6b1e95534, type: 3}
   m_Name: AsteroidSettings
   m_EditorClassIdentifier: 
-  MinForce: 1.4
-  MaxForce: 6.8
-  MinSize: 1.6
-  MaxSize: 7.2
-  MinTorque: 1.5
-  MaxTorque: 8.1
+  MinForce: 2
+  MaxForce: 6
+  MinSize: 1
+  MaxSize: 2
+  MinTorque: 0.1
+  MaxTorque: 1
+  Damage: 1
+  Colors:
+  - {r: 1, g: 0, b: 0.005235672, a: 1}
+  - {r: 1, g: 0.93226576, b: 0, a: 1}
+  - {r: 1, g: 0.45740873, b: 0, a: 1}
