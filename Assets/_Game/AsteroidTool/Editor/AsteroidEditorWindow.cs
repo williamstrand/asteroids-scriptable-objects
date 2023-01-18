@@ -29,7 +29,7 @@ public class AsteroidEditorWindow : EditorWindow
 
     void LoadTree()
     {
-        _uxml = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/_Game/AsteroidTool/AsteroidEditor 1.uxml");
+        _uxml = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/_Game/AsteroidTool/AsteroidEditor.uxml");
         _uxml.CloneTree(rootVisualElement);
     }
 

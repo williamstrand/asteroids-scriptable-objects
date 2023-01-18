@@ -1,30 +1,29 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
-    <ui:VisualElement name="Space" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); flex-shrink: 0; height: 5%;" />
-    <ui:VisualElement name="Force" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); height: auto; flex-shrink: 0;">
-        <ui:Label tabindex="-1" text="Force" display-tooltip-when-elided="true" style="-unity-text-align: upper-left; margin-left: 5%; margin-right: 0;" />
-        <ui:MinMaxSlider min-value="2" max-value="6" low-limit="0" high-limit="15" focusable="true" binding-path="_minMaxForce" name="MinMaxForceSlider" style="margin-left: 25px; margin-right: 25px;" />
-        <ui:VisualElement name="ForceMinMax" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); height: auto; align-items: flex-start; justify-content: center; align-self: auto; visibility: visible; overflow: visible; flex-direction: row; flex-wrap: nowrap;">
-            <ui:FloatField label="Min" value="2" name="Min" focusable="true" readonly="true" binding-path="_minMaxForce.x" style="width: 20%; justify-content: flex-start; align-self: auto; overflow: hidden; align-items: auto; flex-wrap: wrap-reverse; flex-direction: column; margin-left: 10px; margin-right: 50px; margin-top: 10px; margin-bottom: 10px; flex-shrink: 0; flex-basis: 20%;" />
-            <ui:FloatField label="Max" value="6" name="Max" focusable="true" readonly="true" binding-path="_minMaxForce.y" style="width: 20%; justify-content: flex-start; align-self: auto; overflow: hidden; align-items: auto; flex-wrap: wrap-reverse; flex-direction: column; margin-left: 10px; margin-right: 20px; margin-top: 10px; margin-bottom: 10px; flex-shrink: 0; flex-basis: 20%;" />
+    <ui:VisualElement name="MinMaxSliders" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; flex-wrap: nowrap; height: auto; border-left-color: rgb(46, 46, 46); border-right-color: rgb(46, 46, 46); border-top-color: rgb(46, 46, 46); border-bottom-color: rgb(46, 46, 46); border-left-width: 10px; border-right-width: 10px; border-top-width: 10px; border-bottom-width: 10px; padding-left: 8px; padding-right: 8px; padding-top: 8px; padding-bottom: 8px;">
+        <ui:VisualElement name="ForceSlider" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-items: center; width: 30%; align-self: stretch; height: 217px; padding-left: 10px; padding-right: 10px; justify-content: space-between;">
+            <ui:Label tabindex="-1" text="Force" display-tooltip-when-elided="true" style="white-space: nowrap; -unity-text-align: middle-left; margin-left: 0;" />
+            <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 100%; justify-content: flex-start; align-items: auto; flex-direction: row; margin-left: 5px; margin-right: 5px; align-self: auto; flex-wrap: nowrap;">
+                <ui:Slider picking-mode="Ignore" label="Min" value="2" high-value="10" show-input-field="true" inverted="false" direction="Vertical" name="MinForce" binding-path="_minForce.Value" style="height: 100%; width: 50%; flex-direction: column; align-items: stretch; justify-content: space-between; align-self: stretch;" />
+                <ui:Slider picking-mode="Ignore" label="Max" value="6" high-value="10" show-input-field="true" inverted="false" direction="Vertical" binding-path="_maxForce.Value" name="MaxForce" style="height: 100%; width: 50%; flex-direction: column; align-items: stretch; justify-content: space-between; align-self: stretch;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="SizeSlider" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-items: center; width: 30%; align-self: stretch; height: 217px; padding-left: 10px; padding-right: 10px; justify-content: space-between;">
+            <ui:Label tabindex="-1" text="Size" display-tooltip-when-elided="true" style="white-space: nowrap; -unity-text-align: middle-left; margin-left: 0;" />
+            <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 100%; justify-content: flex-start; align-items: auto; flex-direction: row; margin-left: 5px; margin-right: 5px; align-self: auto; flex-wrap: nowrap;">
+                <ui:Slider picking-mode="Ignore" label="Min" value="2" high-value="10" show-input-field="true" inverted="false" direction="Vertical" binding-path="_minSize.Value" name="MinSize" style="height: 100%; width: 50%; flex-direction: column; align-items: stretch; justify-content: space-between; align-self: stretch;" />
+                <ui:Slider picking-mode="Ignore" label="Max" value="6" high-value="10" show-input-field="true" inverted="false" direction="Vertical" binding-path="_maxSize.Value" name="MaxSize" style="height: 100%; width: 50%; flex-direction: column; align-items: stretch; justify-content: space-between; align-self: stretch;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="TorqueSlider" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-items: center; width: 30%; align-self: stretch; height: 217px; padding-left: 10px; padding-right: 10px; justify-content: space-between;">
+            <ui:Label tabindex="-1" text="Torque" display-tooltip-when-elided="true" style="white-space: nowrap; -unity-text-align: middle-left; margin-left: 0;" />
+            <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 100%; justify-content: flex-start; align-items: auto; flex-direction: row; margin-left: 5px; margin-right: 5px; align-self: auto; flex-wrap: nowrap;">
+                <ui:Slider picking-mode="Ignore" label="Min" value="2" high-value="10" show-input-field="true" inverted="false" direction="Vertical" binding-path="_minTorque.Value" name="MinTorque" style="height: 100%; width: 50%; flex-direction: column; align-items: stretch; justify-content: space-between; align-self: stretch;" />
+                <ui:Slider picking-mode="Ignore" label="Max" value="6" high-value="10" show-input-field="true" inverted="false" direction="Vertical" binding-path="_maxTorque.Value" name="MaxTorque" style="height: 100%; width: 50%; flex-direction: column; align-items: stretch; justify-content: space-between; align-self: stretch;" />
+            </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
-    <ui:VisualElement name="Size" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); height: auto; flex-shrink: 0;">
-        <ui:Label tabindex="-1" text="Size" display-tooltip-when-elided="true" style="-unity-text-align: upper-left; margin-left: 5%; margin-right: 0;" />
-        <ui:MinMaxSlider min-value="2" max-value="6" low-limit="0" high-limit="15" focusable="true" binding-path="_minMaxSize" name="MinMaxForceSlider" style="margin-left: 25px; margin-right: 25px;" />
-        <ui:VisualElement name="ForceMinMax" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); height: auto; align-items: flex-start; justify-content: center; align-self: auto; visibility: visible; overflow: visible; flex-direction: row; flex-wrap: nowrap;">
-            <ui:FloatField label="Min" value="2" name="Min" focusable="true" readonly="true" binding-path="_minMaxSize.x" style="width: 20%; justify-content: flex-start; align-self: auto; overflow: hidden; align-items: auto; flex-wrap: wrap-reverse; flex-direction: column; margin-left: 10px; margin-right: 50px; margin-top: 10px; margin-bottom: 10px; flex-shrink: 0; flex-basis: 20%;" />
-            <ui:FloatField label="Max" value="6" name="Max" focusable="true" readonly="true" binding-path="_minMaxSize.y" style="width: 20%; justify-content: flex-start; align-self: auto; overflow: hidden; align-items: auto; flex-wrap: wrap-reverse; flex-direction: column; margin-left: 10px; margin-right: 20px; margin-top: 10px; margin-bottom: 10px; flex-shrink: 0; flex-basis: 20%;" />
-        </ui:VisualElement>
+    <ui:VisualElement name="OtherSettings" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); border-left-width: 10px; border-right-width: 10px; border-top-width: 10px; border-bottom-width: 10px; border-left-color: rgb(46, 46, 46); border-right-color: rgb(46, 46, 46); border-top-color: rgb(46, 46, 46); border-bottom-color: rgb(46, 46, 46); margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+        <uie:PropertyField label="Damage" name="Damage" />
+        <uie:PropertyField name="Colors" label="Colors" />
     </ui:VisualElement>
-    <ui:VisualElement name="Torque" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); height: auto; flex-shrink: 0;">
-        <ui:Label tabindex="-1" text="Torque" display-tooltip-when-elided="true" style="-unity-text-align: upper-left; margin-left: 5%; margin-right: 0;" />
-        <ui:MinMaxSlider min-value="2" max-value="6" low-limit="0" high-limit="15" focusable="true" binding-path="_minMaxTorque" name="MinMaxForceSlider" style="margin-left: 25px; margin-right: 25px;" />
-        <ui:VisualElement name="ForceMinMax" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); height: auto; align-items: flex-start; justify-content: center; align-self: auto; visibility: visible; overflow: visible; flex-direction: row; flex-wrap: nowrap;">
-            <ui:FloatField label="Min" value="2" name="Min" focusable="true" readonly="true" binding-path="_minMaxTorque.x" style="width: 20%; justify-content: flex-start; align-self: auto; overflow: hidden; align-items: auto; flex-wrap: wrap-reverse; flex-direction: column; margin-left: 10px; margin-right: 50px; margin-top: 10px; margin-bottom: 10px; flex-shrink: 0; flex-basis: 20%;" />
-            <ui:FloatField label="Max" value="6" name="Max" focusable="true" readonly="true" binding-path="_minMaxTorque.y" style="width: 20%; justify-content: flex-start; align-self: auto; overflow: hidden; align-items: auto; flex-wrap: wrap-reverse; flex-direction: column; margin-left: 10px; margin-right: 20px; margin-top: 10px; margin-bottom: 10px; flex-shrink: 0; flex-basis: 20%;" />
-        </ui:VisualElement>
-    </ui:VisualElement>
-    <uie:ObjectField label="OnAsteroidDestroyed Event" binding-path="_onAsteroidDestroyed" allow-scene-objects="true" style="margin-top: 10px; justify-content: flex-start; align-items: auto; margin-bottom: 10px; align-self: auto; flex-direction: row; flex-wrap: nowrap; overflow: hidden; visibility: visible; display: flex; width: auto;" />
-    <uie:ObjectField label="Shape" binding-path="_shape" style="margin-top: 10px; justify-content: flex-start; align-items: auto; margin-bottom: 10px;" />
-    <ui:VisualElement name="Space" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); flex-shrink: 0; height: 27px;" />
 </ui:UXML>
