@@ -9,9 +9,9 @@ using Variables;
 public class AsteroidEditorWindow : EditorWindow
 {
     const string SHIP_SETTINGS_PATH = "Assets/_Game/Components/Asteroid/AsteroidSettings.asset";
+    AsteroidSettings _asteroidSettings;
     const string UXML_PATH = "Assets/_Game/AsteroidTool/AsteroidEditor.uxml";
 
-    AsteroidSettings _asteroidSettings;
 
     VisualTreeAsset _uxml;
 
