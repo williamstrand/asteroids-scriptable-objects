@@ -13,7 +13,7 @@ namespace Ship
                 Shoot();
         }
         
-        private void Shoot()
+        public void Shoot()
         {
             var trans = transform;
             Instantiate(_laserPrefab, trans.position, trans.rotation);

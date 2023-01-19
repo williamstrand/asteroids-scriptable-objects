@@ -13,7 +13,7 @@ namespace Ship
         private LaserRuntimeSet _lasers;
 
         [Header("Values:")]
-        [SerializeField] private float _speed = 0.2f;
+        [SerializeField] private ShipSettings _settings;
 
         private Rigidbody2D _rigidbody;
 
@@ -32,7 +32,7 @@ namespace Ship
         private void FixedUpdate()
         {
             var trans = transform;
-            _rigidbody.MovePosition(trans.position + trans.up * _speed);
+            _rigidbody.MovePosition(trans.position + trans.up * _settings.LaserSpeed);
         }
     }
 }
