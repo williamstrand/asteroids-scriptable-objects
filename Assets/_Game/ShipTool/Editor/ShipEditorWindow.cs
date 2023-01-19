@@ -26,7 +26,6 @@ public class ShipEditorWindow : EditorWindow
         LoadTree();
 
         BindProperties();
-
     }
 
     private void LoadTree()
@@ -46,17 +45,13 @@ public class ShipEditorWindow : EditorWindow
 
         sp = so.FindProperty(nameof(ShipSettings.RotationPower));
         rootVisualElement.Q<PropertyField>("Rotation").BindProperty(sp);
-    }
 
-    private void Shoot()
-    {
-        Debug.Log("PEWPEW");
+        sp = so.FindProperty(nameof(ShipSettings.LaserSpeed));
+        rootVisualElement.Q<PropertyField>("LaserSpeed").BindProperty(sp);
     }
 
     private void OnSelectionChange()
     {
-        Debug.Log(Selection.activeObject);
-
         if (Selection.activeGameObject == null) return;
 
         if (Selection.activeGameObject.tag != "Player") return;
@@ -68,5 +63,4 @@ public class ShipEditorWindow : EditorWindow
         rootVisualElement.Q<Button>("SteerRight").clicked += player.SteerRight;
         rootVisualElement.Q<Button>("ThrottleButton").clicked += player.Throttle;
     }
-
 }

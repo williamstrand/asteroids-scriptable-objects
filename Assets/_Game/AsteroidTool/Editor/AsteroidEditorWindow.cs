@@ -8,6 +8,9 @@ using Variables;
 
 public class AsteroidEditorWindow : EditorWindow
 {
+    const string SHIP_SETTINGS_PATH = "Assets/_Game/Components/Asteroid/AsteroidSettings.asset";
+    const string UXML_PATH = "Assets/_Game/AsteroidTool/AsteroidEditor.uxml";
+
     AsteroidSettings _asteroidSettings;
 
     VisualTreeAsset _uxml;
@@ -29,13 +32,13 @@ public class AsteroidEditorWindow : EditorWindow
 
     void LoadTree()
     {
-        _uxml = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/_Game/AsteroidTool/AsteroidEditor.uxml");
+        _uxml = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(UXML_PATH);
         _uxml.CloneTree(rootVisualElement);
     }
 
     void BindProperties()
     {
-        _asteroidSettings = AssetDatabase.LoadAssetAtPath<AsteroidSettings>("Assets/_Game/Components/Asteroid/AsteroidSettings.asset");
+        _asteroidSettings = AssetDatabase.LoadAssetAtPath<AsteroidSettings>(SHIP_SETTINGS_PATH);
         SerializedObject so = new SerializedObject(_asteroidSettings);
 
         SerializedProperty sp = so.FindProperty(nameof(AsteroidSettings.MinForce));
