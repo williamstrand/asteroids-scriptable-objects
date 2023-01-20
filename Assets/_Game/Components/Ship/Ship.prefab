@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2970632031999273632}
   m_Layer: 0
   m_Name: Ship
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,10 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27ca54af3d6ff174994b183b53e8dc92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _throttlePower: {fileID: 11400000, guid: beb4542c9c678f14cb3e3a74aead4314, type: 2}
-  _rotationPower: {fileID: 11400000, guid: eb6f17e4493560c4b9750572ccc4f906, type: 2}
-  _throttlePowerSimple: 0
-  _rotationPowerSimple: 0
+  _shipSettings: {fileID: 11400000, guid: e3ffeef8584af4548a494eb6d01b4882, type: 2}
 --- !u!114 &2970632031999273633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,6 +67,7 @@ MonoBehaviour:
     _simpleValue: 12
     _useSimple: 0
   _healthObservable: {fileID: 11400000, guid: a29c193f4c943534ab4728aacaf9839a, type: 2}
+  _asteroidSettings: {fileID: 11400000, guid: 885d731c97fdce0409bf79542aae6d41, type: 2}
 --- !u!50 &2970632031999273632
 Rigidbody2D:
   serializedVersion: 4
@@ -110,7 +108,7 @@ GameObject:
   - component: {fileID: 4908282535492162380}
   m_Layer: 0
   m_Name: Ship_Sprite
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -242,7 +240,7 @@ GameObject:
   - component: {fileID: 2970632033307266020}
   m_Layer: 0
   m_Name: Ship_Gun
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
