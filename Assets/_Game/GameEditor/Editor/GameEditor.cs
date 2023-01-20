@@ -16,7 +16,6 @@ public class GameEditor : EditorWindow
     VisualElement _root;
     Label _currentEditorName;
 
-    VisualTreeAsset _uxml;
     ShipSettings _shipSettings;
     AsteroidSettings _asteroidSettings;
 
@@ -29,25 +28,31 @@ public class GameEditor : EditorWindow
 
     public void CreateGUI()
     {
-        LoadTree();
+        LoadTree(rootVisualElement, UXML_PATH);
+
+        _root = rootVisualElement.Q<VisualElement>("Root");
+        _currentEditorName = rootVisualElement.Q<Label>("Name");
+
         OnSelectionChange();
     }
 
     /// <summary>
     /// Loads the UXML and clones it to the root.
     /// </summary>
-    private void LoadTree()
+    /// <param name="root">the root visual element.</param>
+    /// <param name="path">the path to the UXML.</param>
+    private void LoadTree(VisualElement root, string path)
     {
-        _uxml = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(UXML_PATH);
-        _uxml.CloneTree(rootVisualElement);
-
-        _root = rootVisualElement.Q<VisualElement>("Root");
-        _currentEditorName = rootVisualElement.Q<Label>("Name");
+        var uxml = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(path);
+        uxml.CloneTree(root);
     }
 
     private void OnSelectionChange()
     {
         if (Selection.activeGameObject == null) return;
+
+        // Remove all children of _root.
+        _root.Clear();
 
         switch (Selection.activeGameObject.tag)
         {
@@ -71,10 +76,8 @@ public class GameEditor : EditorWindow
     private void LoadEmptyEditor()
     {
         _currentEditorName.text = "Game Editor";
-        _root.Clear();
 
-        var uxml = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(EMPTY_UXML_PATH);
-        uxml.CloneTree(_root);
+        LoadTree(_root, EMPTY_UXML_PATH);
     }
 
     /// <summary>
@@ -83,25 +86,14 @@ public class GameEditor : EditorWindow
     private void LoadShipEditor()
     {
         _currentEditorName.text = "Ship Editor";
-        _root.Clear();
 
-        var uxml = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(SHIP_UXML_PATH);
-        uxml.CloneTree(_root);
+        LoadTree(_root, SHIP_UXML_PATH);
 
+        // Load ship settings.
         _shipSettings = AssetDatabase.LoadAssetAtPath<ShipSettings>(SHIP_SETTINGS_PATH);
         SerializedObject so = new SerializedObject(_shipSettings);
 
-        // Bind ThrottlePower.
-        SerializedProperty sp = so.FindProperty(nameof(ShipSettings.ThrottlePower));
-        _root.Q<PropertyField>("Throttle").BindProperty(sp);
-
-        // Bind RotationPower.
-        sp = so.FindProperty(nameof(ShipSettings.RotationPower));
-        _root.Q<PropertyField>("Rotation").BindProperty(sp);
-
-        // Bind LaserSpeed.
-        sp = so.FindProperty(nameof(ShipSettings.LaserSpeed));
-        _root.Q<PropertyField>("LaserSpeed").BindProperty(sp);
+        _root.Bind(so);
     }
 
     /// <summary>
@@ -111,47 +103,12 @@ public class GameEditor : EditorWindow
     {
         _currentEditorName.text = "Asteroid Editor";
 
-        // Remove all children of _root.
-        _root.Clear();
-
-        // Load the uxml and clone it to the root.
-        var uxml = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(ASTEROID_UXML_PATH);
-        uxml.CloneTree(_root);
+        LoadTree(_root, ASTEROID_UXML_PATH);
 
         // Load asteroid settings.
         _asteroidSettings = AssetDatabase.LoadAssetAtPath<AsteroidSettings>(ASTEROID_SETTINGS_PATH);
         SerializedObject so = new SerializedObject(_asteroidSettings);
 
-        // Bind MinForce.
-        SerializedProperty sp = so.FindProperty(nameof(AsteroidSettings.MinForce));
-        _root.Q<Slider>("MinForce").BindProperty(sp);
-
-        // Bind MaxForce.
-        sp = so.FindProperty(nameof(AsteroidSettings.MaxForce));
-        _root.Q<Slider>("MaxForce").BindProperty(sp);
-
-        // Bind MinSize.
-        sp = so.FindProperty(nameof(AsteroidSettings.MinSize));
-        _root.Q<Slider>("MinSize").BindProperty(sp);
-
-        // Bind MaxSize.
-        sp = so.FindProperty(nameof(AsteroidSettings.MaxSize));
-        _root.Q<Slider>("MaxSize").BindProperty(sp);
-
-        // Bind MinTorque.
-        sp = so.FindProperty(nameof(AsteroidSettings.MinTorque));
-        _root.Q<Slider>("MinTorque").BindProperty(sp);
-
-        // Bind MaxTorque.
-        sp = so.FindProperty(nameof(AsteroidSettings.MaxTorque));
-        _root.Q<Slider>("MaxTorque").BindProperty(sp);
-
-        // Bind Damage.
-        sp = so.FindProperty(nameof(AsteroidSettings.Damage));
-        _root.Q<PropertyField>("Damage").BindProperty(sp);
-
-        // Bind Colors.
-        sp = so.FindProperty(nameof(AsteroidSettings.Colors));
-        _root.Q<PropertyField>("Colors").BindProperty(sp);
+        _root.Bind(so);
     }
 }
