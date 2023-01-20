@@ -8,6 +8,7 @@ public class GameEditor : EditorWindow
     const string UXML_PATH = "Assets/_Game/GameEditor/Game Editor.uxml";
     const string SHIP_UXML_PATH = "Assets/_Game/GameEditor/Ship Editor.uxml";
     const string ASTEROID_UXML_PATH = "Assets/_Game/GameEditor/Asteroid Editor.uxml";
+    const string EMPTY_UXML_PATH = "Assets/_Game/GameEditor/Empty Editor.uxml";
 
     const string SHIP_SETTINGS_PATH = "Assets/_Game/Components/Ship/Ship Settings.asset";
     const string ASTEROID_SETTINGS_PATH = "Assets/_Game/Components/Asteroid/AsteroidSettings.asset";
@@ -29,6 +30,7 @@ public class GameEditor : EditorWindow
     public void CreateGUI()
     {
         LoadTree();
+        OnSelectionChange();
     }
 
     /// <summary>
@@ -58,8 +60,21 @@ public class GameEditor : EditorWindow
                 break;
 
             default:
+                LoadEmptyEditor();
                 break;
         }
+    }
+
+    /// <summary>
+    /// Shows the empty editor.
+    /// </summary>
+    private void LoadEmptyEditor()
+    {
+        _currentEditorName.text = "Game Editor";
+        _root.Clear();
+
+        var uxml = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(EMPTY_UXML_PATH);
+        uxml.CloneTree(_root);
     }
 
     /// <summary>

@@ -3,7 +3,7 @@
         <uie:PropertyField label="Throttle Power" name="Throttle" />
         <uie:PropertyField name="Rotation" label="Rotation Power" />
         <uie:PropertyField name="LaserSpeed" label="Laser Speed" />
-        <ui:VisualElement name="Operations" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); justify-content: space-around; align-items: center; align-self: center; padding-left: 50px; padding-right: 50px; padding-top: 50px; padding-bottom: 50px; flex-direction: column; flex-wrap: nowrap;">
+        <ui:VisualElement name="Operations" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); justify-content: space-around; align-items: center; align-self: center; padding-left: 50px; padding-right: 50px; padding-top: 50px; padding-bottom: 50px; flex-direction: column; flex-wrap: nowrap; visibility: hidden; display: none;">
             <ui:Label tabindex="-1" text="Operations" display-tooltip-when-elided="true" style="font-size: 22px; margin-bottom: 26px;" />
             <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); height: auto; width: 100%; align-items: center; justify-content: space-around; align-self: center;">
                 <ui:Button text="Throttle" display-tooltip-when-elided="true" name="ThrottleButton" style="width: 60px; height: 60px; white-space: nowrap; text-overflow: clip; -unity-text-align: middle-center;" />
